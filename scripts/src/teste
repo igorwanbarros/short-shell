@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+BASE=$PWD;
+source "${PWD}/src/lib/miscellaneous.sh";
+source "${PWD}/src/lib/colors.sh";
+source "${PWD}/src/lib/list-path.sh";
+
+
+NAME_SCRIPT='Teste';
+
+main ()
+{
+    header
+    list
+    echo `ternary 1 2`
+}
+
+
+header()
+{
+    linha -----;
+    echoYellow ":: Softcom Tecnologia ::";
+    echo "Script: ${COLOR_GRAY}${NAME_SCRIPT}${COLOR_RESET}";
+#    echoRed 'DuDu';
+#    echoMagenta 'Peppa pig';
+    linha;
+}
+
+linha()
+{
+    PADRAO='---~-';
+    LINHA='';
+
+    if [ $# -eq 1 ]
+    then
+        PADRAO=$1;
+    fi
+
+    for i in $(seq 0 20);
+    do
+        LINHA=$LINHA$PADRAO;
+    done
+
+    echo $LINHA;
+}
+
+main
